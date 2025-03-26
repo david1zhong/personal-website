@@ -416,7 +416,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold mb-4">Tools & Platforms</h4>
                     <ul className="space-y-2">
-                      {["Github", "VS Code", "Linux", "Google Cloud", "GitLab"].map((skill, index) => (
+                      {["Github", "VS Code", "Linux", "Google Cloud", "Git"].map((skill, index) => (
                         <motion.li
                           key={index}
                           initial={{ opacity: 0, x: -20 }}
@@ -435,7 +435,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold mb-4">Other Skills</h4>
                     <ul className="space-y-2">
-                      {["", "", "", "", ""].map((skill, index) => (
+                      {["Web Scraping", "Data Analysis", "3d Modelling", "Automation", "Front Desk"].map((skill, index) => (
                         <motion.li
                           key={index}
                           initial={{ opacity: 0, x: -20 }}
