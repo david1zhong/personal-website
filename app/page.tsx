@@ -189,7 +189,7 @@ export default function Home() {
                 className="flex justify-center"
               >
                 <Avatar className="h-64 w-64 border-4 border-primary rounded-full shadow-xl">
-                  <AvatarImage src="/placeholder.svg?height=256&width=256" alt="David Zhong" className="object-cover" />
+                  <AvatarImage src="/profile.webp" alt="David Zhong" className="object-cover" />
                   <AvatarFallback>DZ</AvatarFallback>
                 </Avatar>
               </motion.div>
