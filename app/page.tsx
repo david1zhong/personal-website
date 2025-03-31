@@ -237,6 +237,7 @@ export default function Home() {
           </div>
         </section>
 
+        /*
         <section id="projects" ref={projectsRef} className="py-20 md:py-32 bg-muted/50">
           <div className="container">
             <motion.div
@@ -305,6 +306,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        */
 
         <section id="experience" ref={experienceRef} className="py-20 md:py-32">
           <div className="container">
