@@ -543,7 +543,7 @@ export default function Home() {
 
                 <div className="pt-6 text-center">
                   <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                    <Button>Download Resume</Button>
+                    <Button>Open Resume</Button>
                   </Link>
                 </div>
               </motion.div>
