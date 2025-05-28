@@ -534,7 +534,7 @@ export default function Home() {
                   <h4 className="font-bold mb-4">Education</h4>
                   <div className="pl-8 border-l-2 border-muted-foreground/20 relative">
                     <div className="absolute left-[-8px] top-0 h-4 w-4 rounded-full bg-primary"></div>
-                    <h5 className="text-lg font-bold">Bachelor of Computing in Computer Science</h5>
+                    <h5 className="text-lg font-bold">Bachelor of Computing in Computer Science (Co-op)</h5>
                     <div className="flex items-center text-muted-foreground">
                       <span>University of Guelph</span>
                       <span className="mx-2">•</span>
