@@ -349,8 +349,6 @@ export default function Home() {
                       Bet-NHL is a real-time NHL betting dashboard that fetches the latest game odds before puckdrop, live game statuses, 
                       and final betting results,
                       presenting them in a responsive and visually clean layout. 
-                      Designed to support simulated betting and strategy testing, 
-                      it offers fans, like myself, a centralized platform to make informed predictions.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow">
@@ -362,8 +360,8 @@ export default function Home() {
                       <Badge variant="secondary">BeautifulSoup</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua.
+                      Designed to support simulated betting and strategy testing, 
+                      it offers fans, like myself, a centralized platform to make informed predictions.
                     </p>
                   </CardContent>
                   <CardFooter className="flex justify-between">
