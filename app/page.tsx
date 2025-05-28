@@ -321,7 +321,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
               <div className="h-1 w-20 bg-primary mx-auto"></div>
               <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-                Here are some of my recent projects that showcase my skills and interests.
+                Here is a recent project I am proud of that blends my skills and interests.
               </p>
             </motion.div>
 
@@ -344,16 +344,22 @@ export default function Home() {
                     />
                   </div>
                   <CardHeader>
-                    <CardTitle>Featured Project</CardTitle>
+                    <CardTitle>Bet NHL</CardTitle>
                     <CardDescription>
-                      A brief description of this amazing project and what technologies were used.
+                      Bet-NHL is a real-time NHL betting dashboard that fetches the latest game odds before puckdrop, live game statuses, 
+                      and final betting results,
+                      presenting them in a responsive and visually clean layout. 
+                      Designed to support simulated betting and strategy testing, 
+                      it offers fans, like myself, a centralized platform to make informed predictions.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <div className="flex flex-wrap gap-2 mb-4">
-                      <Badge variant="secondary">React</Badge>
-                      <Badge variant="secondary">TypeScript</Badge>
+                      <Badge variant="secondary">Python</Badge>
+                      <Badge variant="secondary">HTML/CSS</Badge>
+                      <Badge variant="secondary">JavaScript</Badge>
                       <Badge variant="secondary">Tailwind</Badge>
+                      <Badge variant="secondary">BeautifulSoup</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
