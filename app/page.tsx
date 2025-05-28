@@ -144,7 +144,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              I'm a developer focused on building responsive, user-friendly web applications that combine clean design with real-world functionality.
+              I'm a developer building responsive, user-friendly web apps with clean design and practical functionality.
             </motion.p>
           </motion.div>
 
