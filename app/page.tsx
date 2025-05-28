@@ -409,18 +409,18 @@ export default function Home() {
                 <div className="space-y-8">
                   {[
                     {
-                      title: "Math and French Tutor",
-                      company: "David's Tutoring",
-                      period: "2021",
-                      description:
-                        "Designed & taught student-tailored lessons for Gr. 4 curriculum & contest-level math & French.",
-                    },
-                    {
                       title: "Full Stack Developer, Co-op",
                       company: "DigitalFire.ca",
                       period: "2023",
                       description:
                         "Automated a 200+ item inventory database using Python and Google API, built a frontend with HTML, CSS, PHP, and JavaScript, managed IT equipment for small businesses, and handled front desk communications and package reception.",
+                    },
+                    {
+                      title: "Math and French Tutor",
+                      company: "David's Tutoring",
+                      period: "2021",
+                      description:
+                        "Designed & taught student-tailored lessons for Gr. 4 curriculum & contest-level math & French.",
                     },
                   ].map((job, index) => (
                     <motion.div
