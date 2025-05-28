@@ -336,7 +336,7 @@ export default function Home() {
                 <Card className="h-full flex flex-col overflow-hidden group">
                   <div className="relative aspect-video overflow-hidden">
                     <Image
-                      src="/placeholder.svg?height=300&width=600&text=Featured+Project"
+                      src="/bet-nhl-preview.webp?height=300&width=600&text=Featured+Project"
                       alt="Featured Project"
                       width={600}
                       height={300}
