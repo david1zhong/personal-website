@@ -364,14 +364,19 @@ export default function Home() {
                     </p>
                   </CardContent>
                   <CardFooter className="flex justify-between">
-                    <Button variant="outline" size="sm">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </Button>
-                    <Button size="sm">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Demo
-                    </Button>
+                    <a href="https://github.com/david1zhong/bet_nhl_demo_site" target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="sm">
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </Button>
+                    </a>
+                    
+                    <a href="https://davidjzhong.vercel.app/bet-nhl" target="_blank" rel="noopener noreferrer">
+                      <Button size="sm">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Demo
+                      </Button>
+                    </a>
                   </CardFooter>
                 </Card>
               </motion.div>
