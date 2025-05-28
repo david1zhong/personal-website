@@ -357,7 +357,6 @@ export default function Home() {
                       <Badge variant="secondary">HTML/CSS</Badge>
                       <Badge variant="secondary">JavaScript</Badge>
                       <Badge variant="secondary">Tailwind</Badge>
-                      <Badge variant="secondary">BeautifulSoup</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
                       Designed to support simulated betting and strategy testing, 
