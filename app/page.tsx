@@ -308,6 +308,74 @@ export default function Home() {
         </section>
         */}
 
+
+        <section id="projects" ref={projectsRef} className="py-20 md:py-32 bg-muted/50">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
+              <div className="h-1 w-20 bg-primary mx-auto"></div>
+              <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+                Here are some of my recent projects that showcase my skills and interests.
+              </p>
+            </motion.div>
+
+            <div className="flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="max-w-md"
+              >
+                <Card className="h-full flex flex-col overflow-hidden group">
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=300&width=600&text=Featured+Project"
+                      alt="Featured Project"
+                      width={600}
+                      height={300}
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <CardHeader>
+                    <CardTitle>Featured Project</CardTitle>
+                    <CardDescription>
+                      A brief description of this amazing project and what technologies were used.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary">React</Badge>
+                      <Badge variant="secondary">TypeScript</Badge>
+                      <Badge variant="secondary">Tailwind</Badge>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua.
+                    </p>
+                  </CardContent>
+                  <CardFooter className="flex justify-between">
+                    <Button variant="outline" size="sm">
+                      <Github className="mr-2 h-4 w-4" />
+                      Code
+                    </Button>
+                    <Button size="sm">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Demo
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         <section id="experience" ref={experienceRef} className="py-20 md:py-32">
           <div className="container">
             <motion.div
