@@ -27,6 +27,10 @@ const nextConfig = {
       {
         source: '/bet-nhl',
         destination: '/bet-nhl/index.html'
+      },
+      {
+        source: '/brawl-stars-calculator',
+        destination: '/projects/games/brawl-stars-calculator/index.html'
       }
     ]
   }
