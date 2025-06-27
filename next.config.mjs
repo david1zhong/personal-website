@@ -21,6 +21,15 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+
+  async rewrites() {
+    return [
+      {
+        source: '/bet-nhl',
+        destination: '/bet-nhl/index.html'
+      }
+    ]
+  }
 }
 
 mergeConfig(nextConfig, userConfig)

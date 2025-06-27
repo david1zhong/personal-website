@@ -144,7 +144,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              I'm a developer passionate about creating beautiful and functional web experiences.
+              I'm a developer building responsive, user-friendly web apps with clean design and practical functionality.
             </motion.p>
           </motion.div>
 
@@ -189,7 +189,7 @@ export default function Home() {
                 className="flex justify-center"
               >
                 <Avatar className="h-64 w-64 border-4 border-primary rounded-full shadow-xl">
-                  <AvatarImage src="/placeholder.svg?height=256&width=256" alt="David Zhong" className="object-cover" />
+                  <AvatarImage src="/profile.webp" alt="David Zhong" className="object-cover" />
                   <AvatarFallback>DZ</AvatarFallback>
                 </Avatar>
               </motion.div>
@@ -237,6 +237,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/*
         <section id="projects" ref={projectsRef} className="py-20 md:py-32 bg-muted/50">
           <div className="container">
             <motion.div
@@ -305,6 +306,83 @@ export default function Home() {
             </div>
           </div>
         </section>
+        */}
+
+
+        <section id="projects" ref={projectsRef} className="py-20 md:py-32 bg-muted/50">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
+              <div className="h-1 w-20 bg-primary mx-auto"></div>
+              <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+                Here is a recent project I am proud of that blends my skills and interests.
+              </p>
+            </motion.div>
+
+            <div className="flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="max-w-md"
+              >
+                <Card className="h-full flex flex-col overflow-hidden group">
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src="/bet-nhl-preview.webp?height=300&width=600&text=Featured+Project"
+                      alt="Featured Project"
+                      width={600}
+                      height={300}
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <CardHeader>
+                    <CardTitle>Bet NHL</CardTitle>
+                    <CardDescription>
+                      Bet-NHL is a real-time NHL betting dashboard that fetches the latest game odds before puckdrop, live game statuses, 
+                      and final betting results,
+                      presenting them in a responsive and visually clean layout. 
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary">Python</Badge>
+                      <Badge variant="secondary">HTML/CSS</Badge>
+                      <Badge variant="secondary">JavaScript</Badge>
+                      <Badge variant="secondary">Tailwind</Badge>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Designed to support simulated betting and strategy testing, 
+                      it offers fans, like myself, a centralized platform to make informed predictions.
+                    </p>
+                  </CardContent>
+                  <CardFooter className="flex justify-between">
+                    <a href="https://github.com/david1zhong/bet_nhl_demo_site" target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="sm">
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </Button>
+                    </a>
+                    
+                    <a href="https://davidjzhong.vercel.app/bet-nhl" target="_blank" rel="noopener noreferrer">
+                      <Button size="sm">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Demo
+                      </Button>
+                    </a>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
         <section id="experience" ref={experienceRef} className="py-20 md:py-32">
           <div className="container">
@@ -331,18 +409,18 @@ export default function Home() {
                 <div className="space-y-8">
                   {[
                     {
-                      title: "Math and French Tutor",
-                      company: "David's Tutoring",
-                      period: "2021",
-                      description:
-                        "Designed & taught student-tailored lessons for Gr. 4 curriculum & contest-level math & French.",
-                    },
-                    {
                       title: "Full Stack Developer, Co-op",
                       company: "DigitalFire.ca",
                       period: "2023",
                       description:
                         "Automated a 200+ item inventory database using Python and Google API, built a frontend with HTML, CSS, PHP, and JavaScript, managed IT equipment for small businesses, and handled front desk communications and package reception.",
+                    },
+                    {
+                      title: "Math and French Tutor",
+                      company: "David's Tutoring",
+                      period: "2021",
+                      description:
+                        "Designed & taught student-tailored lessons for Gr. 4 curriculum & contest-level math & French.",
                     },
                   ].map((job, index) => (
                     <motion.div
@@ -416,7 +494,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold mb-4">Tools & Platforms</h4>
                     <ul className="space-y-2">
-                      {["Github", "VS Code", "Linux", "Google Cloud", "GitLab"].map((skill, index) => (
+                      {["Github", "VS Code", "Linux", "Google Cloud", "Git"].map((skill, index) => (
                         <motion.li
                           key={index}
                           initial={{ opacity: 0, x: -20 }}
@@ -435,7 +513,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold mb-4">Other Skills</h4>
                     <ul className="space-y-2">
-                      {["", "", "", "", ""].map((skill, index) => (
+                      {["Web Scraping", "Data Analysis", "3d Modelling", "Automation", "Front Desk"].map((skill, index) => (
                         <motion.li
                           key={index}
                           initial={{ opacity: 0, x: -20 }}
@@ -456,7 +534,7 @@ export default function Home() {
                   <h4 className="font-bold mb-4">Education</h4>
                   <div className="pl-8 border-l-2 border-muted-foreground/20 relative">
                     <div className="absolute left-[-8px] top-0 h-4 w-4 rounded-full bg-primary"></div>
-                    <h5 className="text-lg font-bold">Bachelor of Computing in Computer Science</h5>
+                    <h5 className="text-lg font-bold">Bachelor of Computing in Computer Science (Co-op)</h5>
                     <div className="flex items-center text-muted-foreground">
                       <span>University of Guelph</span>
                       <span className="mx-2">•</span>
@@ -541,7 +619,7 @@ export default function Home() {
 
                 <div className="pt-6 text-center">
                   <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                    <Button>Download Resume</Button>
+                    <Button>Open Resume</Button>
                   </Link>
                 </div>
               </motion.div>
