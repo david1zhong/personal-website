@@ -30,7 +30,7 @@ const nextConfig = {
       },
       {
         source: '/brawl-stars-calculator',
-        destination: '/projects/games/brawl-stars-calculator/index.html'
+        destination: '/projects/games/brawl-stars-calculator/api/templates/index.html'
       }
     ]
   }
