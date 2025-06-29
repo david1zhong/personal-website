@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 480px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .form {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+        }
+        
+        .field {
+            margin-bottom: 20px;
+        }
+        
+        .field:last-child {
+            margin-bottom: 0;
+        }
+        
+        .label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #e2e8f0;
+            margin-bottom: 6px;
+        }
+        
+        .input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.2s ease;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .help {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        
+        .time-inputs {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .time-input {
+            width: 70px;
+        }
+        
+        .time-separator {
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 8px;
+        }
+        
+        .grid-item {
+            position: relative;
+        }
+        
+        .grid-item .input {
+            padding-left: 28px;
+            font-size: 13px;
+        }
+        
+        .grid-item::before {
+            content: attr(data-n);
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+            z-index: 1;
+        }
+        
+        .button {
+            width: 100%;
+            padding: 12px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 24px;
+        }
+        
+        .button:hover:not(:disabled) {
+            background: #2563eb;
+        }
+        
+        .button:disabled {
+            background: #475569;
+            cursor: not-allowed;
+        }
+        
+        .results {
+            margin-top: 24px;
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+        }
+        
+        .results-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 16px;
+        }
+        
+        .result {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #0f172a;
+            border-radius: 6px;
+            border-left: 3px solid #10b981;
+        }
+        
+        .result:last-child {
+            margin-bottom: 0;
+        }
+        
+        .result.done {
+            border-left-color: #059669;
+            background: #022c22;
+        }
+        
+        .result-header {
+            font-size: 13px;
+            font-weight: 500;
+            color: #e2e8f0;
+            margin-bottom: 2px;
+        }
+        
+        .result-time {
+            font-size: 12px;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+        
+        .result-completion {
+            font-weight: 500;
+            color: #059669;
+        }
+        
+        .result-full-date {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+        
+        .error {
+            margin-top: 16px;
+            padding: 12px;
+            background: #2d1b20;
+            border: 1px solid #5b2c41;
+            border-radius: 6px;
+            color: #fca5a5;
+            font-size: 14px;
+        }
+        
+        .loading {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+                padding: 0 16px;
+            }
+            
+            .form {
+                padding: 20px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Clash of Clans Builder Potion Calculator</h1>
+            <p class="subtitle">Calculate upgrade completion times with builder potions</p>
+        </div>
+        
+        <form class="form" id="calculatorForm">
+            <div class="field">
+                <label class="label">Current Time</label>
+                <div class="time-inputs">
+                    <input type="number" id="currentHour" class="input time-input" min="0" max="23" value="20" required>
+                    <span class="time-separator">:</span>
+                    <input type="number" id="currentMinute" class="input time-input" min="0" max="59" value="0" required>
+                </div>
+                <div class="help">24-hour format (HH:MM)</div>
+            </div>
+            
+            <div class="field">
+                <label class="label" for="builderPotions">Builder Potions</label>
+                <input type="number" id="builderPotions" class="input" min="0" value="3" required>
+                <div class="help">Each potion saves 9 hours</div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Upgrade Times</label>
+                <div class="help">Format: 5d12h, 5d, or 12h (max 30 days)</div>
+                <div class="grid">
+                    <div class="grid-item" data-n="1">
+                        <input type="text" name="upgradeTime" class="input" placeholder="15h" value="15h">
+                    </div>
+                    <div class="grid-item" data-n="2">
+                        <input type="text" name="upgradeTime" class="input" placeholder="1d12h" value="1d12h">
+                    </div>
+                    <div class="grid-item" data-n="3">
+                        <input type="text" name="upgradeTime" class="input" placeholder="2d3h" value="2d3h">
+                    </div>
+                    <div class="grid-item" data-n="4">
+                        <input type="text" name="upgradeTime" class="input" placeholder="3d16h" value="3d16h">
+                    </div>
+                    <div class="grid-item" data-n="5">
+                        <input type="text" name="upgradeTime" class="input" placeholder="9d4h" value="9d4h">
+                    </div>
+                    <div class="grid-item" data-n="6">
+                        <input type="text" name="upgradeTime" class="input" placeholder="14d" value="14d">
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="button" id="calculateBtn">Calculate</button>
+        </form>
+        
+        <div id="results" style="display: none;"></div>
+        <div id="error" style="display: none;"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('calculatorForm');
+        const btn = document.getElementById('calculateBtn');
+        const results = document.getElementById('results');
+        const error = document.getElementById('error');
+    
+        function validateUpgradeTime(value) {
+            if (!value) return { valid: true, error: '' };
+    
+            const bothPattern = /^(\d{1,2})d(\d{1,2})h$/;
+            const dayPattern = /^(\d{1,2})d$/;
+            const hourPattern = /^(\d{1,2})h$/;
+    
+            let match;
+            if ((match = value.match(bothPattern))) {
+                const d = parseInt(match[1], 10);
+                const h = parseInt(match[2], 10);
+                if (d > 30 || h > 30) return { valid: false, error: 'Days and hours must be ≤ 30.' };
+                return { valid: true, error: '' };
+            }
+            if ((match = value.match(dayPattern))) {
+                const d = parseInt(match[1], 10);
+                if (d > 30) return { valid: false, error: 'Days must be ≤ 30.' };
+                return { valid: true, error: '' };
+            }
+            if ((match = value.match(hourPattern))) {
+                const h = parseInt(match[1], 10);
+                if (h > 30) return { valid: false, error: 'Hours must be ≤ 30.' };
+                return { valid: true, error: '' };
+            }
+    
+            return { valid: false, error: 'Format must be: NdMh, Nd, or Mh (no spaces, numbers ≤ 30).' };
+        }
+    
+        const upgradeInputs = document.querySelectorAll('input[name="upgradeTime"]');
+        upgradeInputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                const validation = validateUpgradeTime(input.value.trim());
+                if (!validation.valid) {
+                    input.style.borderColor = '#ef4444';
+                    input.title = validation.error;
+                } else {
+                    input.style.borderColor = '#475569';
+                    input.title = '';
+                }
+            });
+            input.addEventListener('input', () => {
+                const validation = validateUpgradeTime(input.value.trim());
+                if (validation.valid) {
+                    input.style.borderColor = '#475569';
+                    input.title = '';
+                }
+            });
+        });
+    
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            let clientValid = true;
+            upgradeInputs.forEach(input => {
+                const validation = validateUpgradeTime(input.value.trim());
+                if (!validation.valid) {
+                    input.style.borderColor = '#ef4444';
+                    input.title = validation.error;
+                    clientValid = false;
+                } else {
+                    input.style.borderColor = '#475569';
+                    input.title = '';
+                }
+            });
+            if (!clientValid) {
+                btn.disabled = false;
+                btn.innerHTML = 'Calculate';
+                error.innerHTML = '<div class="error">Please correct the invalid upgrade time formats.</div>';
+                error.style.display = 'block';
+                return;
+            }
+    
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"><span class="spinner"></span>Calculating</span>';
+            results.style.display = 'none';
+            error.style.display = 'none';
+    
+            const currentHour = document.getElementById('currentHour').value;
+            const currentMinute = document.getElementById('currentMinute').value;
+            const builderPotions = document.getElementById('builderPotions').value;
+            const upgradeTimes = Array.from(upgradeInputs).map(input => input.value.trim());
+    
+            fetch('/calculate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    current_hour: currentHour,
+                    current_minute: currentMinute,
+                    builder_potions: builderPotions,
+                    upgrade_times: upgradeTimes
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                btn.disabled = false;
+                btn.innerHTML = 'Calculate';
+    
+                if (data.success) {
+                    error.style.display = 'none';
+    
+                    if (data.results.length === 0) {
+                        results.innerHTML = '<div class="results"><p>No upgrades to calculate.</p></div>';
+                        results.style.display = 'block';
+                        return;
+                    }
+    
+                    let html = '<div class="results"><div class="results-title">Results</div>';
+                    data.results.forEach(result => {
+                        const isDone = result.completion === 'Done';
+                        html += `<div class="result${isDone ? ' done' : ''}">`;
+                        html += `<div class="result-header">Upgrade ${result.index}</div>`;
+                        html += `<div class="result-time">${result.original_time} → <span class="result-completion">${result.completion}</span></div>`;
+                        if (!isDone) {
+                            html += `<div class="result-full-date">${result.completion_datetime}</div>`;
+                        }
+                        html += `</div>`;
+                    });
+                    html += '</div>';
+                    results.innerHTML = html;
+                    results.style.display = 'block';
+                } else {
+                    results.style.display = 'none';
+                    error.innerHTML = `<div class="error">Error: ${data.error}</div>`;
+                    error.style.display = 'block';
+                }
+            })
+            .catch(err => {
+                console.error('Error:', err);
+                btn.disabled = false;
+                btn.innerHTML = 'Calculate';
+                error.innerHTML = '<div class="error">Failed to calculate. Please try again.</div>';
+                error.style.display = 'block';
+            });
+        });
+    
+        window.addEventListener('load', function() {
+            const now = new Date();
+            document.getElementById('currentHour').value = now.getHours();
+            document.getElementById('currentMinute').value = now.getMinutes();
+        });
+    </script>    
+</body>
+</html>
