@@ -31,6 +31,10 @@ const nextConfig = {
       {
         source: '/brawl-stars-calculator',
         destination: '/projects/games/brawl-stars-calculator/api/templates/index.html'
+      },
+      {
+        source: '/clash-of-clans-calculator',
+        destination: '/projects/games/clash-of-clans-calculator/api/templates/index.html'
       }
     ]
   }
