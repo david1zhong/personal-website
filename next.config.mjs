@@ -25,10 +25,6 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/bet-nhl',
-        destination: '/bet-nhl/index.html'
-      },
-      {
         source: '/brawl-stars-calculator',
         destination: '/projects/games/brawl-stars-calculator/api/templates/index.html'
       },
