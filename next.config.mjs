@@ -35,6 +35,10 @@ const nextConfig = {
       {
         source: '/clash-of-clans-calculator',
         destination: '/projects/games/clash-of-clans-calculator/api/templates/index.html'
+      },
+      {
+        source: '/bet-nhl',
+        destination: '/projects/sports-betting/bet-nhl/index.html'
       }
     ]
   }
